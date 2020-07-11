@@ -1,3 +1,6 @@
+// ONE TO MANY WALKTHROUGH: https://bezkoder.com/sequelize-associate-one-to-many/
+// RELATIONS DOCUMENTATION: https://sequelize.readthedocs.io/en/latest/docs/associations/
+
 require('dotenv').config()
 let express = require('express');
 let app = express();
