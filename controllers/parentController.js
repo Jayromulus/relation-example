@@ -2,6 +2,24 @@ let router = require('express').Router();
 let sequelize = require('../db')
 let Parent = sequelize.import('../models/parent')
 
-router.post('/', (req, res) => {
-  let userId = req.user.id
+router.post('/create', (req, res) => {
+  let userId = req.user.id;
+  Parent.create({
+    information: req.body.parent.info
+  })
+  .then(
+    (parent) => { res.status(200).json({parent}) },
+    (err) => { res.send(500).send(err.message) }
+  )
 })
+
+router.get('/get', (req, res) => {
+  Parent.findAll()
+  .then(
+    (parents) => res.status(200).json({parents}),
+    (err) => res.status(500).send(err.message)
+  )
+})
+
+module.exports = router;
+// add 4 hours to time (friday) to account for teaching material
