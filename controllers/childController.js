@@ -22,4 +22,3 @@ router.get('/get', (req, res) => {
 })
 
 module.exports = router;
-// add 4 hours to time (friday) to account for teaching material
