@@ -3,7 +3,6 @@ let sequelize = require('../db')
 let Child = sequelize.import('../models/child')
 
 router.post('/create', (req, res) => {
-  let userId = req.user.id;
   Child.create({
     relatedInfo: req.body.child.info
   })

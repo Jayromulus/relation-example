@@ -19,6 +19,7 @@ app.use(require('./middleware/validate-session'));
 
 app.use('/api/parent', require('./controllers/parentController'))
 app.use('/api/child', require('./controllers/childController'))
+app.use('/api/comment', require('./controllers/commentController'))
 
 app.listen(process.env.PORT, () => console.log(`App is listening on ${process.env.PORT}`))
 
