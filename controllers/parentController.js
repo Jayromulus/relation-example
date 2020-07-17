@@ -13,7 +13,7 @@ router.post('/create', (req, res) => {
 })
 
 router.get('/get', (req, res) => {
-  Parent.findAll()
+  Parent.findAll({ include: ['child'] })
   .then(
     (parents) => res.status(200).json({parents}),
     (err) => res.status(500).send(err.message)

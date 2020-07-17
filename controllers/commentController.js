@@ -4,7 +4,8 @@ let Comment = sequelize.import('../models/comment')
 
 router.post('/create', (req, res) => {
   Comment.create({
-    info: req.body.comment.info
+    info: req.body.comment.info,
+    childId: req.body.comment.childId
   })
   .then(
     (comment) => { res.status(200).json({comment}) },

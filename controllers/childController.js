@@ -4,7 +4,8 @@ let Child = sequelize.import('../models/child')
 
 router.post('/create', (req, res) => {
   Child.create({
-    relatedInfo: req.body.child.info
+    relatedInfo: req.body.child.info,
+    parentId: req.body.child.parentId
   })
   .then(
     (child) => { res.status(200).json({child}) },
@@ -13,7 +14,7 @@ router.post('/create', (req, res) => {
 })
 
 router.get('/get', (req, res) => {
-  Child.findAll()
+  Child.findAll({ include: ['comment'] })
   .then(
     (children) => res.status(200).json({children}),
     (err) => res.status(500).send(err.message)
